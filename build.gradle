@@ -2,9 +2,28 @@ buildscript {
     ext {
         compose_ui_version = '1.2.0'
     }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Add the dependency for the Google services Gradle plugin
+        classpath 'com.google.gms:google-services:4.3.15'
+    }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     id 'com.android.application' version '7.4.1' apply false
     id 'com.android.library' version '7.4.1' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.0' apply false
 }
+
+// allprojects에서는 모든 모듈에 공통적으로 들어가는 dependency 등을 설정할 수 있다
+// 보통은 모듈마다 각각 의존성을 설정하기 때문에 거의 사용할 일이 없다
+// ref: https://stackoverflow.com/questions/30158971/whats-the-difference-between-buildscript-and-allprojects-in-build-gradle
+//
+//allprojects {
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
+//}
